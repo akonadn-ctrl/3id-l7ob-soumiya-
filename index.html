@@ -1,1 +1,161 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>إلى حبيبي ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;color:white;text-align:center;
+ font-family:Arial,sans-serif;overflow-x:hidden;
+ background:radial-gradient(circle at top,#85264e,#39001d,#10000c);
+}
+#stars{position:fixed;inset:0;pointer-events:none}
+.star{position:absolute;background:white;border-radius:50%;animation:shine 2s infinite alternate}
+@keyframes shine{to{opacity:.2}}
+.moon{
+ position:fixed;top:40px;right:12%;width:75px;height:75px;
+ border-radius:50%;background:#ffe8b4;
+ box-shadow:0 0 25px #ffd98c,0 0 80px #ffb6d5;
+}
+main{position:relative;z-index:2;max-width:650px;margin:auto;padding:130px 18px 40px}
+h1{font-size:40px;color:#ffc1da;text-shadow:0 0 20px #ff4f91}
+h2{color:#ffc1da}
+p{line-height:2;font-size:18px}
+.panel{
+ background:#ffffff12;border:1px solid #ffffff40;
+ border-radius:25px;padding:25px;margin:22px 0;
+ backdrop-filter:blur(12px);
+ box-shadow:0 0 30px #ff3b7a20;
+}
+.heart{font-size:70px;animation:beat 1.2s infinite}
+@keyframes beat{50%{transform:scale(1.2)}}
+button{
+ background:linear-gradient(120deg,#9c174e,#ff5794);
+ color:white;border:0;border-radius:30px;padding:14px 25px;
+ font-size:17px;cursor:pointer;margin:12px;
+ box-shadow:0 0 20px #ff579455;
+}
+#letter,#giftText,#final{display:none;animation:show 2s}
+@keyframes show{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+#gift{font-size:85px;cursor:pointer}
+.rose{position:fixed;bottom:-50px;animation:up 8s linear forwards;pointer-events:none}
+@keyframes up{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+
+<body>
+<div id="stars"></div>
+<div class="moon"></div>
+
+<main>
+ <div class="heart">❤️</div>
+ <h1>عيد حب سعيد يا حبيبي</h1>
+ <p>إلى أجمل إنسان في حياتي 🌹</p>
+
+ <section class="panel">
+  <h2>💌 رسالة من القلب</h2>
+  <p>
+   وجودك يجعل الأيام أجمل،
+   وابتسامتك تجعل العالم أكثر إشراقاً.
+   أتمنى أن تبقى السعادة رفيقة دربك،
+   وأن تحمل لك الحياة أجمل المفاجآت.
+  </p>
+  <button onclick="showLetter()">افتح رسالتك السرية 💗</button>
+  <div id="letter">
+   <h2>أنت حكاية جميلة ❤️</h2>
+   <p>
+    لو استطعت أن أهديك شيئاً واحداً،
+    لأهديتك القدرة على رؤية نفسك بعيني،
+    حتى تعرف كم أنت شخص مميز.
+    أتمنى لك الحب والحنان والسعادة دائماً.
+   </p>
+   🌹💞🌹
+  </div>
+ </section>
+
+ <section class="panel">
+  <h2>🎁 مفاجأة خاصة لك</h2>
+  <p>اضغط على الهدية لاكتشاف ما بداخلها</p>
+  <div id="gift" onclick="openGift()">🎁</div>
+  <div id="giftText">
+   <h2>مفاجأة من القلب ❤️</h2>
+   <p>أنت تستحق أجمل الورود وأرق الكلمات وأصدق المشاعر.</p>
+   💝🌹💖
+  </div>
+ </section>
+
+ <section class="panel">
+  <h2>🌙 أمنية صغيرة</h2>
+  <p>أتمنى أن يكون مستقبلك مليئاً بالسلام والفرح، وأن تتحقق جميع أمنياتك.</p>
+  <button onclick="finalSurprise()">المفاجأة الأخيرة ✨</button>
+  <div id="final">
+   <h1>أنت مميز دائماً ❤️</h1>
+   <p>كل أيامك حب وسعادة 🌹</p>
+  </div>
+ </section>
+
+ <section class="panel">
+  <h2>🎵 موسيقى المفاجأة</h2>
+  <p>اضغط لتشغيل الموسيقى الخاصة بك</p>
+  <button onclick="music()" id="musicBtn">▶ تشغيل الموسيقى</button>
+  <audio id="audio" loop>
+   <source src="TAGNE%20FT.%20STORMY%20%26%20KHTEK%20-%20FRATELLO%20(Official%20Music%20Video).m4a" type="audio/mp4">
+  </audio>
+ </section>
+
+ <p style="color:#ffc1da">صُنعت بكل حب ❤️🌹</p>
+</main>
+
+<script>
+const stars=document.getElementById('stars');
+for(let i=0;i<100;i++){
+ let s=document.createElement('i');
+ s.className='star';
+ s.style.left=Math.random()*100+'%';
+ s.style.top=Math.random()*100+'%';
+ s.style.width=s.style.height=(1+Math.random()*3)+'px';
+ stars.appendChild(s);
+}
+
+function showLetter(){
+ document.getElementById('letter').style.display='block';
+}
+function openGift(){
+ document.getElementById('gift').innerHTML='💝';
+ document.getElementById('giftText').style.display='block';
+}
+function finalSurprise(){
+ document.getElementById('final').style.display='block';
+}
+async function music(){
+ const a=document.getElementById('audio');
+ const b=document.getElementById('musicBtn');
+ if(a.paused){
+  try{
+   await a.play();
+   b.innerHTML='⏸ إيقاف الموسيقى';
+  }catch(e){
+   b.innerHTML='تعذر تشغيل الملف، تحقق من مكانه';
+  }
+ }else{
+  a.pause();
+  b.innerHTML='▶ تشغيل الموسيقى';
+ }
+}
+function roses(){
+ let r=document.createElement('div');
+ r.className='rose';
+ r.textContent=['🌹','💗','🌸','❤️','✨'][Math.floor(Math.random()*5)];
+ r.style.left=Math.random()*100+'vw';
+ r.style.fontSize=(20+Math.random()*25)+'px';
+ document.body.appendChild(r);
+ setTimeout(()=>r.remove(),8000);
+}
+setInterval(roses,650);
+</script>
+</body>
+    </html>
+  
